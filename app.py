@@ -29,7 +29,7 @@ def text_generation(prompt:str, conversation: list[dict], max_new_tokens: int = 
     mask = torch.ones_like(inputs)
     input_length = inputs.shape[-1]
 
-    outputs = model.generate(inputs, attention_mask=mask, do_sample=True, temperature=0.8, max_new_tokens=max_new_tokens,
+    outputs = model.generate(inputs, attention_mask=mask, do_sample=True, temperature=0.8, top_k=50, max_new_tokens=max_new_tokens,
                              pad_token_id=tokenizer.eos_token_id, streamer=streamer)
     text_output = tokenizer.batch_decode(outputs[:, input_length:], skip_special_tokens=True)[0]
 
@@ -46,7 +46,7 @@ def text_continuation(conversation: list[dict], max_new_tokens: int = 500, strea
     mask = torch.ones_like(inputs)
     input_length = inputs.shape[-1]
 
-    outputs = model.generate(inputs, attention_mask=mask, do_sample=True, temperature=0.8, max_new_tokens=max_new_tokens,
+    outputs = model.generate(inputs, attention_mask=mask, do_sample=True, temperature=0.8, top_k=50, max_new_tokens=max_new_tokens,
                              pad_token_id=tokenizer.eos_token_id, streamer=streamer)
     text_output = tokenizer.batch_decode(outputs[:, input_length:], skip_special_tokens=True)[0]
 
