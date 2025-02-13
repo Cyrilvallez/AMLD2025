@@ -10,7 +10,6 @@ sudo apt update
 
 # Install nvidia drivers
 sudo apt install -y nvidia-driver-550
-# sudo apt install -y nvidia-open
 
 # Install cuda toolkit
 sudo apt install -y cuda-toolkit-12-8
