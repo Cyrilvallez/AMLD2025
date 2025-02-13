@@ -26,3 +26,9 @@ Host amld
 ```
 
 Note: to save and exit in `vim`, press `esc`, then `:wq`.
+
+Then you can connect to your machine by simply running:
+
+```sh
+ssh amld
+```
